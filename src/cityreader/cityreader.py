@@ -1,3 +1,4 @@
+import csv
 # Create a class to hold a city location. Call the class "City". It should have
 # fields for name, lat and lon (representing latitude and longitude).
 
@@ -29,9 +30,15 @@ class City:
 cities = []
 
 def cityreader(cities=[]):
-  # TODO Implement the functionality to read from the 'cities.csv' file
+  # Implement the functionality to read from the 'cities.csv' file
   # For each city record, create a new City instance and add it to the 
   # `cities` list
+  with open(r"C:\Users\Cori\Lambda_School\Projects_Git\Sprint-Challenge--Python\Sprint-Challenge--Intro-Python\src\cityreader\cities.csv") as csvfile:
+    readCSV = csv.reader(csvfile, delimiter=',')
+    for row in readCSV:
+      if row[0] == 'city' or row[3] == 'lat' or row[4] == 'lon':
+        continue
+      cities.append(City(row[0], row[3], row[4]))
     
     return cities
 
