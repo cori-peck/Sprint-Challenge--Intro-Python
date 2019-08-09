@@ -38,7 +38,7 @@ def cityreader(cities=[]):
     for row in readCSV:
       if row[0] == 'city' or row[3] == 'lat' or row[4] == 'lon':
         continue
-      cities.append(City(row[0], row[3], row[4]))
+      cities.append(City(row[0], float(row[3]), float(row[4])))
     
     return cities
 
