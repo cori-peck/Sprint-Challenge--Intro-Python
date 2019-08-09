@@ -35,10 +35,10 @@ def cityreader(cities=[]):
   # `cities` list
   with open(r"C:\Users\Cori\Lambda_School\Projects_Git\Sprint-Challenge--Python\Sprint-Challenge--Intro-Python\src\cityreader\cities.csv") as csvfile:
     readCSV = csv.reader(csvfile, delimiter=',')
-    for row in readCSV:
+    for row in readCSV:                                       #for iterates over the items in the order they appear
       if row[0] == 'city' or row[3] == 'lat' or row[4] == 'lon':
-        continue
-      cities.append(City(row[0], float(row[3]), float(row[4])))
+        continue                                              #continues with the next iteration of the loop
+      cities.append(City(row[0], float(row[3]), float(row[4])))   #adds the new instance to the 'cities' list
     
     return cities
 
